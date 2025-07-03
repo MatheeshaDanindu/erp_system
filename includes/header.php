@@ -11,9 +11,9 @@
         <a class="navbar-brand" href="/erp-system/index.php">ERP System</a>
         <div>
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="/erp-system/customer/list.php">Customers</a></li>
-                <li class="nav-item"><a class="nav-link" href="/erp-system/item/list.php">Items</a></li>
-                <li class="nav-item"><a class="nav-link" href="/erp-system/reports/invoice_report.php">Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="/csquare_erp/customer/list.php">Customers</a></li>
+                <li class="nav-item"><a class="nav-link" href="/csquare_erp/item/list.php">Items</a></li>
+                <li class="nav-item"><a class="nav-link" href="/csquare_erp/reports/invoice_report.php">Reports</a></li>
             </ul>
         </div>
     </div>

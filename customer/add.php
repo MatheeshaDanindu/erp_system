@@ -1,11 +1,12 @@
 <?php
 require_once '../includes/db.php';
-$title = $first_name = $last_name = $contact_no = $district = "";
+$title = $first_name = $middle_name = $last_name = $contact_no = $district = "";
 $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = trim($_POST["title"]);
     $first_name = trim($_POST["first_name"]);
+    $middle_name = trim($_POST["middle_name"]);
     $last_name = trim($_POST["last_name"]);
     $contact_no = trim($_POST["contact_no"]);
     $district = trim($_POST["district"]);
@@ -13,13 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validation
     if (empty($title)) $errors[] = "Title is required";
     if (empty($first_name)) $errors[] = "First name is required";
+    if (empty($middle_name)) $errors[] = "Middle name is required";
     if (empty($last_name)) $errors[] = "Last name is required";
     if (!preg_match('/^\d{10}$/', $contact_no)) $errors[] = "Contact number must be 10 digits";
     if (empty($district)) $errors[] = "District is required";
 
     if (empty($errors)) {
-        $stmt = $conn->prepare("INSERT INTO customer (title, first_name, last_name, contact_no, district) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $title, $first_name, $last_name, $contact_no, $district);
+        $stmt = $conn->prepare("INSERT INTO customer (title, first_name, middle_name, last_name, contact_no, district) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssss", $title, $first_name, $middle_name, $last_name, $contact_no, $district);
         if ($stmt->execute()) {
             header("Location: list.php");
             exit;
@@ -52,6 +54,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="form-label">First Name</label>
             <input type="text" class="form-control" name="first_name" required value="<?= htmlspecialchars($first_name) ?>">
             <div class="invalid-feedback">First name required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Middle Name</label>
+            <input type="text" class="form-control" name="middle_name" required value="<?= htmlspecialchars($middle_name) ?>">
+            <div class="invalid-feedback">Middle name required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Last Name</label>
