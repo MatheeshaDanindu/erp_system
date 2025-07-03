@@ -8,7 +8,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/erp-system/index.php">ERP System</a>
+        <a class="navbar-brand" href="/csquare_erp/index.php">ERP System</a>
         <div>
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="/csquare_erp/customer/list.php">Customers</a></li>
