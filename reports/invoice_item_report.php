@@ -35,6 +35,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const from = document.querySelector('input[name="from"]').value;
+            const to = document.querySelector('input[name="to"]').value;
+            if (from && to) {
+                const fromDate = new Date(from);
+                const toDate = new Date(to);
+                if (fromDate >= toDate) {
+                    alert('From date must be before To date.');
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        });
+    </script>
+
     <?php if ($rows): ?>
     <table class="table table-bordered">
         <thead>
