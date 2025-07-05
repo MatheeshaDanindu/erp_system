@@ -58,3 +58,4 @@ $result = $conn->query("SELECT c.*, d.district AS district_name FROM customer c 
         </div>
     </div>
 </div>
+<?php include '../includes/footer.php'; ?>
