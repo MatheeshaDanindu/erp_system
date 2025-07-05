@@ -50,10 +50,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="mb-3">
             <label class="form-label">Item Code</label>
             <input type="text" class="form-control" name="item_code" required value="<?= htmlspecialchars($item_code) ?>">
+            <div class="invalid-feedback">Item code required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Item Name</label>
             <input type="text" class="form-control" name="item_name" required value="<?= htmlspecialchars($item_name) ?>">
+            <div class="invalid-feedback">Item name required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Item Category</label>
@@ -66,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
             </select>
+            <div class="invalid-feedback">Category required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Item Subcategory</label>
@@ -78,14 +81,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
             </select>
+            <div class="invalid-feedback">Subcategory required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Quantity</label>
             <input type="number" class="form-control" name="quantity" min="0" required value="<?= htmlspecialchars($quantity) ?>">
+            <div class="invalid-feedback">Quantity required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Unit Price</label>
             <input type="number" step="0.01" class="form-control" name="unit_price" min="0" required value="<?= htmlspecialchars($unit_price) ?>">
+            <div class="invalid-feedback">Unit price required.</div>
         </div>
         <button type="submit" class="btn btn-primary">Update Item</button>
     </form>

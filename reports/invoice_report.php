@@ -20,61 +20,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php include '../includes/header.php'; ?>
 <div class="container mt-4">
     <h2>Invoice Report</h2>
-    <form method="post" class="row g-3 mb-3">
-        <div class="col-auto">
-            <label>From:</label>
-            <input type="date" name="from" class="form-control" required value="<?= htmlspecialchars($from) ?>">
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="post" class="row g-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label">From:</label>
+                    <input type="date" name="from" class="form-control" required value="<?= htmlspecialchars($from) ?>">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">To:</label>
+                    <input type="date" name="to" class="form-control" required value="<?= htmlspecialchars($to) ?>">
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100"><i class="bi bi-search"></i> Search</button>
+                </div>
+            </form>
         </div>
-        <div class="col-auto">
-            <label>To:</label>
-            <input type="date" name="to" class="form-control" required value="<?= htmlspecialchars($to) ?>">
-        </div>
-        <div class="col-auto align-self-end">
-            <button type="submit" class="btn btn-primary">Search</button>
-        </div>
-    </form>
+    </div>
     
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const from = document.querySelector('input[name="from"]').value;
-            const to = document.querySelector('input[name="to"]').value;
-            if (from && to) {
-                const fromDate = new Date(from);
-                const toDate = new Date(to);
-                if (fromDate >= toDate) {
-                    alert('From date must be before To date.');
-                    e.preventDefault();
-                    return false;
-                }
-            }
-        });
-    </script>
-
-    <?php if ($rows): ?>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Invoice No</th>
-                <th>Date</th>
-                <th>Customer</th>
-                <th>District</th>
-                <th>Item Count</th>
-                <th>Invoice Amount</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach($rows as $row): ?>
-            <tr>
-                <td><?= htmlspecialchars($row['invoice_no']) ?></td>
-                <td><?= htmlspecialchars($row['date']) ?></td>
-                <td><?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></td>
-                <td><?= htmlspecialchars($row['district']) ?></td>
-                <td><?= htmlspecialchars($row['item_count']) ?></td>
-                <td><?= htmlspecialchars($row['amount']) ?></td>
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-    <?php endif; ?>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered align-middle">
+                    <thead>
+                        <tr>
+                            <th>Invoice No</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>District</th>
+                            <th>Item Count</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($rows as $row): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['invoice_no']) ?></td>
+                            <td><?= htmlspecialchars($row['date']) ?></td>
+                            <td><?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?></td>
+                            <td><?= htmlspecialchars($row['district']) ?></td>
+                            <td><?= htmlspecialchars($row['item_count']) ?></td>
+                            <td><?= htmlspecialchars($row['amount']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+            
 </div>
 <?php include '../includes/footer.php'; ?>

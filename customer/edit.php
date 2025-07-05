@@ -56,22 +56,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="Miss" <?= $title=='Miss'?'selected':'' ?>>Miss</option>
                 <option value="Dr" <?= $title=='Dr'?'selected':'' ?>>Dr</option>
             </select>
+            <div class="invalid-feedback">Please select a title.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">First Name</label>
             <input type="text" class="form-control" name="first_name" required value="<?= htmlspecialchars($first_name) ?>">
+            <div class="invalid-feedback">First name required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Middle Name</label>
-            <input type="text" class="form-control" name="middle_name" value="<?= htmlspecialchars($middle_name) ?>">
+            <input type="text" class="form-control" name="middle_name" required value="<?= htmlspecialchars($middle_name) ?>">
+            <div class="invalid-feedback">Middle name required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Last Name</label>
             <input type="text" class="form-control" name="last_name" required value="<?= htmlspecialchars($last_name) ?>">
+            <div class="invalid-feedback">Last name required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">Contact Number</label>
             <input type="text" class="form-control" name="contact_no" pattern="\d{10}" required value="<?= htmlspecialchars($contact_no) ?>">
+            <div class="invalid-feedback">10-digit contact number required.</div>
         </div>
         <div class="mb-3">
             <label class="form-label">District</label>
@@ -84,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 ?>
             </select>
+            <div class="invalid-feedback">Please select a district.</div>
         </div>
         <button type="submit" class="btn btn-primary">Update Customer</button>
     </form>
