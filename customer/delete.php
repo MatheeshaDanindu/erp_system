@@ -11,4 +11,3 @@ include '../includes/header.php';
 <div class="container mt-4">
     <div class="alert alert-success">Customer deleted successfully. <a href="list.php" class="btn btn-primary btn-sm ms-2">Back to List</a></div>
 </div>
-<?php include '../includes/footer.php'; ?>

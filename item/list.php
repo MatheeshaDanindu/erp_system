@@ -63,4 +63,3 @@ $result = $conn->query("SELECT it.*, ic.category AS category_name, isc.sub_categ
         </div>
     </div>
 </div>
-<?php include '../includes/footer.php'; ?>

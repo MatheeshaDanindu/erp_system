@@ -13,13 +13,6 @@ body {
 .btn {
     border-radius: 6px;
 }
-footer {
-    background: #212529;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px;
-}
 .table thead th {
     background: #343a40;
     color: #fff;
